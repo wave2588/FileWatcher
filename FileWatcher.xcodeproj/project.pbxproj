@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		401020001E4DC186005A89B0 /* TestFileWatcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 40101FFF1E4DC186005A89B0 /* TestFileWatcher.m */; };
 		406F76CB1E6002A6007BA4D8 /* MMFileItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 406F76CA1E6002A6007BA4D8 /* MMFileItem.m */; };
 		40BC6AC61E287F0D002FB8D2 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 40BC6AC51E287F0D002FB8D2 /* AppDelegate.m */; };
 		40BC6AC91E287F0D002FB8D2 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 40BC6AC81E287F0D002FB8D2 /* main.m */; };
@@ -39,8 +38,6 @@
 
 /* Begin PBXFileReference section */
 		40101FD71E4C46D2005A89B0 /* Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Header.h; sourceTree = "<group>"; };
-		40101FFE1E4DC186005A89B0 /* TestFileWatcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestFileWatcher.h; sourceTree = "<group>"; };
-		40101FFF1E4DC186005A89B0 /* TestFileWatcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestFileWatcher.m; sourceTree = "<group>"; };
 		406F76C91E6002A6007BA4D8 /* MMFileItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMFileItem.h; sourceTree = "<group>"; };
 		406F76CA1E6002A6007BA4D8 /* MMFileItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMFileItem.m; sourceTree = "<group>"; };
 		4094B7F11E73F87500DAC35E /* Test.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = Test.c; sourceTree = "<group>"; };
@@ -123,8 +120,6 @@
 				40BC6ACB1E287F0D002FB8D2 /* ViewController.m */,
 				40BC6AF81E289202002FB8D2 /* NSString+Category.h */,
 				40BC6AF91E289202002FB8D2 /* NSString+Category.m */,
-				40101FFE1E4DC186005A89B0 /* TestFileWatcher.h */,
-				40101FFF1E4DC186005A89B0 /* TestFileWatcher.m */,
 				406F76C91E6002A6007BA4D8 /* MMFileItem.h */,
 				406F76CA1E6002A6007BA4D8 /* MMFileItem.m */,
 				40101FD71E4C46D2005A89B0 /* Header.h */,
@@ -310,7 +305,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				40BC6ACC1E287F0D002FB8D2 /* ViewController.m in Sources */,
-				401020001E4DC186005A89B0 /* TestFileWatcher.m in Sources */,
 				40BC6AC91E287F0D002FB8D2 /* main.m in Sources */,
 				40BC6AF61E287F51002FB8D2 /* FileWatcher.m in Sources */,
 				40BC6AFA1E289202002FB8D2 /* NSString+Category.m in Sources */,

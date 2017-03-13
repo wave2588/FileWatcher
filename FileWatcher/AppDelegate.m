@@ -6,21 +6,21 @@
 //  Copyright © 2017年 wave. All rights reserved.
 //
 
+/*
+    这个工具只能检测到文件的 新建/删除/修改/重命名 4个操作    其他操作(比如修改权限)都放在other里.
+ */
+
 #import "AppDelegate.h"
 #import "FileWatcher.h"
 #import "NSString+Category.h"
 #import "MMFileItem.h"
 #import <FinderSync/FinderSync.h>
 
-#import "JSTFileWatcher.h"
-
 #define DLog(FORMAT, ...) fprintf(stderr,"\nfunction:%s line:%d content:%s\n", __FUNCTION__, __LINE__, [[NSString stringWithFormat:FORMAT, ##__VA_ARGS__] UTF8String])
 
 @interface AppDelegate ()
 
 @property (nonatomic,strong) FileWatcher *watcher;
-
-@property (nonatomic,strong) JSTFileWatcher *jsFileWatcher;
 
 @end
 
@@ -40,92 +40,44 @@
 
 -(void)demoOne:(NSString *)filePath
 {
-    self.watcher = [[FileWatcher alloc] initWithBlock:^(NSDictionary *dict,FileWatcherStatus status) {
+        self.watcher = [[FileWatcher alloc] initWithBlock:^(NSDictionary *dict,FileWatcherStatus status) {
+            
+                if (status == FileWatcherStateCreated)
+                {
+                        DLog(@"created  --->  %@",dict);
+                }
+                else if (status == FileWatcherStateRemoved)
+                {
+                        DLog(@"removed  --->  %@",dict);
+                }
+                else if (status == FileWatcherStateRenamed)
+                {
+                        DLog(@"renamed  --->  %@",dict);
+                }
+                else if (status == FileWatcherStateEdited)
+                {
+                        DLog(@"edited  --->  %@",dict);
+                }
+                else if (status == FileWatcherStateOther)
+                {
+                        DLog(@"other  --->  %@",dict);
+                }
+        }];
         
-        if (status == FileWatcherStateCreated)
-        {
-            DLog(@"created  --->  %@",dict);
-        }
-        else if (status == FileWatcherStateRemoved)
-        {
-            DLog(@"removed  --->  %@",dict);
-        }
-        else if (status == FileWatcherStateRenamed)
-        {
-            DLog(@"renamed  --->  %@",dict);
-        }
-        else if (status == FileWatcherStateEdited)
-        {
-            DLog(@"edited  --->  %@",dict);
-        }
-        
-    }];
-    
-    [self.watcher openEventStream:@[filePath] latency:0];
+        [self.watcher openEventStream:@[filePath] latency:0];
 }
 
-/// **************** 文件夹操作 **************** ///
+/// **************** folder operation **************** ///
 
 -(void)_folderOperation:(NSDictionary *)dict path:(NSString *)path
 {
-
 }
 
 
-/// **************** 文件操作 **************** ///
+/// **************** file operation **************** ///
 -(void)_fileOperation:(NSDictionary *)dict path:(NSString *)path
 {
-        NSString *fileName = [path lastPathComponent];
-        
-        if (dict.count != 1)
-        {
-            DLog(@"重命名操作");
-            return ;
-        }
-        
-        NSString *flag = dict[path];
-        
-        if ([flag isEqualToString:@"created"])
-        {
-            DLog(@"%@  新建操作",fileName);
-        }
-        else if ([flag isEqualToString:@"removed"])
-        {
-            DLog(@"%@  删除操作",fileName);
-        }
-        else if ([flag isEqualToString:@"renamed"])
-        {
-            DLog(@"%@  renamed操作",fileName);
-        }
 }
-
-
-
-
-/// **************** 文件夹/文件公用操作 **************** ///
--(void)_batchOperation:(NSDictionary *)dict
-{
-    DLog(@"批量操作");
-}
-
--(void)_batchCreateFile
-{
-
-}
-
--(void)_batchRemoveFile
-{
-    
-}
-
--(void)_removeFile:(MMFileItem *)item
-{
-    DLog(@"File Removed!  %@",item.file_localPath);
-}
-
-
-
-
 
 /// add sidebar
 -(void)addPathToSharedItem:(NSString *)path

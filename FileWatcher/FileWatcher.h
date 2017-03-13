@@ -13,7 +13,8 @@ typedef NS_ENUM(NSUInteger, FileWatcherStatus){
     FileWatcherStateRemoved,
     FileWatcherStateCreated,
     FileWatcherStateRenamed,
-    FileWatcherStateEdited
+    FileWatcherStateEdited,
+    FileWatcherStateOther
 };
 
 @interface FileWatcher : NSObject {

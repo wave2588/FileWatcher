@@ -19,7 +19,6 @@
     return userName;
 }
 
-///判断路径文件是否存在
 - (BOOL)isExistAtPath
 {
     NSFileManager *fileManager = [NSFileManager defaultManager];
